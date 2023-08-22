@@ -1,0 +1,8 @@
+{
+  "connectionLimit" : 10,
+  "host"            : "db4free.net",
+  "user"            : "pooja1995",
+  "password"        : "pooja@1995",
+  "database"        : "hospital_qms",
+  "throwErrors"     : false
+}
