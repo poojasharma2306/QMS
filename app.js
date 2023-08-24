@@ -10,7 +10,7 @@ const moment = require('moment');
 const twilio = require('twilio');
 const smsConfig = require('./twilio-config.json');
 const paymentConfig = require('./razorpay-config.json');
-const razorpayInstance = new Razorpay({ key_id: paymentConfig.KEY_ID, key_secret: paymentConfig.KEY_SECRET })
+const razorpayInstance = new Razorpay({ key_id: paymentConfig.KEY_ID, key_secret: paymentConfig.KEY_SECRET });
 
 const server = express();
 
@@ -117,7 +117,7 @@ server.get('/generateOtp', async function (req, res) {
 	const result = await connection.awaitQuery('INSERT INTO otp (otp, mobile, verified) VALUES (?, ?, ?)', [otp, req.query.mobile, false]);
 	console.log(otp, result, err);
 	if (!err) {
-		//sendSms(otp, req.query.mobile);
+		sendSms(otp, req.query.mobile);
 		res.status(200).send('OTP generated');
 	} else {
 		res.status(500).send(err);

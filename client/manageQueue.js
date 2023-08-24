@@ -73,7 +73,7 @@ function renderData() {
 
 async function loadPage() {
     //set date to today by default;
-    today = new Date().toLocaleDateString().split('/').reverse().join('-');
+    today = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-');
     document.getElementById('date').value = today;
     patients = await fetchPatients(today);
     renderData();
@@ -143,7 +143,7 @@ async function startVisit(patient) {
             url: '/api/appointments/status',
             data: {
                 status: 'In Progress',
-                visit_date: new Date(patient.visit_date).toLocaleDateString().split('/').reverse().join('-'),
+                visit_date: new Date(patient.visit_date).toLocaleDateString('en-GB').split('/').reverse().join('-'),
                 phone: patient.phone
             }
         });
@@ -163,7 +163,7 @@ async function endVisit(patient) {
             url: '/api/appointments/status',
             data: {
                 status: 'Ended',
-                visit_date: new Date(patient.visit_date).toLocaleDateString().split('/').reverse().join('-'),
+                visit_date: new Date(patient.visit_date).toLocaleDateString('en-GB').split('/').reverse().join('-'),
                 phone: patient.phone
             }
         });
@@ -183,7 +183,7 @@ async function markVisitAsNoShow(patient) {
             url: '/api/appointments/status',
             data: {
                 status: 'No Show',
-                visit_date: new Date(patient.visit_date).toLocaleDateString().split('/').reverse().join('-'),
+                visit_date: new Date(patient.visit_date).toLocaleDateString('en-GB').split('/').reverse().join('-'),
                 phone: patient.phone
             }
         });

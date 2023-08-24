@@ -32,7 +32,7 @@ const createAppointment = async function (req, res) {
 		if (appointment.email) {
 			sendEmail(req, appointment, serial_number);
 		}
-		//sendSms(req, appointment, serial_number);
+		sendSms(req, appointment, serial_number);
 		res.status(200).send(serial_number.toString());
 	} else {
 		console.log(error.code);

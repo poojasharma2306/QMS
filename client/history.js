@@ -110,7 +110,7 @@ function renderPatientInTable(patient) {
     cell1.innerHTML = patient.serial_number;
 
     const cell7 = row.insertCell();
-    cell7.innerHTML = new Date(patient.visit_date).toLocaleDateString().split('/').reverse().join('-')
+    cell7.innerHTML = new Date(patient.visit_date).toLocaleDateString('en-GB').split('/').reverse().join('-')
 
     const cell2 = row.insertCell();
     cell2.innerHTML = patient.name;
@@ -136,7 +136,7 @@ function downloadCSV() {
     const csvEntries = patients.map(function (patient) {
         return {
             'Appointment Number': patient.serial_number,
-            'Visit Date': new Date(patient.visit_date).toLocaleDateString().split('/').reverse().join('-'),
+            'Visit Date': new Date(patient.visit_date).toLocaleDateString('en-GB').split('/').reverse().join('-'),
             'Name': patient.name,
             'Phone': patient.phone,
             'Age': patient.age,
