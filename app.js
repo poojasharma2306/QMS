@@ -140,7 +140,7 @@ server.get('/verifyOtp', async function (req, res) {
 });
 
 async function sendSms(otp, mobile) {
-	const client = new twilio(smsConfig.TWILIO_ACCOUNT_SID, smsConfig.AUTH_TOKEN);
+	const client = new twilio(smsConfig.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN || smsConfig.AUTH_TOKEN);
 	try {
 		const messsage = await client.messages.create({
 			body: `OTP to confirm your appointment is ${otp}`,

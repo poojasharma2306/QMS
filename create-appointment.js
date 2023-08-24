@@ -69,7 +69,7 @@ async function sendEmail(req, appointment, serial_number) {
 }
 
 async function sendSms(req, appointment, serial_number) {
-	const client = new twilio(smsConfig.TWILIO_ACCOUNT_SID, smsConfig.AUTH_TOKEN);
+	const client = new twilio(smsConfig.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN || smsConfig.AUTH_TOKEN);
 	try {
 		const messsage = await client.messages.create({
 			body: `Hi ${appointment.name}, Your appointment on ${appointment.visit_date} is Confirmed. Your appointment number is ${serial_number}. Your can track or cancel your appointment status and ETA using below link.\n${req.protocol}://${req.get('host')}/tracker`,
