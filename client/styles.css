@@ -76,3 +76,7 @@ label.radio input:checked+span {
 .hidden {
 	display: 'none !important';
 }
+
+.navbar-nav {
+	font-weight: bolder;
+}
