@@ -1,5 +1,5 @@
 {
-  "connectionLimit" : 10,
+  "connectionLimit" : 20,
   "host"            : "db4free.net",
   "user"            : "pooja1995",
   "password"        : "pooja@1995",
